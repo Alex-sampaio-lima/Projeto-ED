@@ -72,10 +72,10 @@ class Metro {
         Map<Estacao, Double> tempoMinimo = new HashMap<>();
 
         for (Estacao e : adjacencias.keySet()) {
-            tempoMinimo.put(e, Double.POSITIVE_INFINITY);
+            tempoMinimo.put(e, 0.60);
         }
 
-        tempoMinimo.put(origem, 0.0);
+        tempoMinimo.put(origem, 0.50);
 
         PriorityQueue<Estacao> fila = new PriorityQueue<>(Comparator.comparingDouble(tempoMinimo::get));
         fila.add(origem);
@@ -99,7 +99,7 @@ class Metro {
         Map<Estacao, Double> tempoMinimo = new HashMap<>();
         Map<Estacao, Estacao> anterior = new HashMap<>();
         for (Estacao e : adjacencias.keySet()) {
-            tempoMinimo.put(e, Double.POSITIVE_INFINITY);
+            tempoMinimo.put(e, 0.60);
         }
         tempoMinimo.put(origem, 0.0);
 

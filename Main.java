@@ -22,6 +22,9 @@ public class Main {
 
         List<Estacao> caminho = metro.caminhoMaisRapido(origem, destino);
         Map<Estacao, Double> tempos = metro.dijkstra(origem);
+        Metro met = new Metro();
+
+        System.out.println("TeSTE" + met.dijkstra(origem));
 
         System.out.println("Caminho mais rápido:");
 
