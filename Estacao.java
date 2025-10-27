@@ -29,8 +29,11 @@ public class Estacao {
         if (!(o instanceof Estacao)) {
             return false;
         }
-        // Aqui fazemos um cast do objeto o para forçar
+        // Aqui fazemos um cast do objeto o para forçar ele ser do Tipo Estacao, e dessa
+        // forma
+        // acessar os métodos de Estacao
         Estacao estacao = (Estacao) o;
+        // Aqui temos mais uma comparação desta vez estamos comparando os ids
         return id.equals(estacao.id);
     };
 
