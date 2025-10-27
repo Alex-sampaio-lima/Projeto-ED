@@ -18,18 +18,18 @@ public class Main {
 
         if (origem == null || destino == null) {
             System.out.println("Estação inválida!");
-            return;
         }
 
         List<Estacao> caminho = metro.caminhoMaisRapido(origem, destino);
         Map<Estacao, Double> tempos = metro.dijkstra(origem);
 
         System.out.println("Caminho mais rápido:");
-        for (Estacao e : caminho) {
-            System.out.print(e.getNome());
-            if (!e.equals(destino))
+
+        for (Estacao estacao : caminho) {
+            System.out.print(estacao.getNome());
+            if (!estacao.equals(destino))
                 System.out.print(" -> ");
         }
         System.out.println("\nTempo estimado: " + tempos.get(destino) + " minutos");
-    }
-}
+    };
+};

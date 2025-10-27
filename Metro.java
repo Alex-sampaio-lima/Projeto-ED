@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 class Metro {
+    // adjacencias seriam as conexões entre as
+    // arestas ou entre uma estação e outra, se
+    // for pensar no caso do problema
     private final Map<Estacao, List<Conexao>> adjacencias = new HashMap<>();
     private final Map<String, Estacao> estacoesPorNome = new HashMap<>();
 
@@ -41,15 +44,22 @@ class Metro {
 
     private void adicionarEstacao(String id, String nome) {
         Estacao e = new Estacao(id, nome);
+        // Estamos usando o putIfAbsent pois ele cria a lista caso ainda não exista,
+        // fazendo assim com que nós não
+        // precisemos realizar uma validação a mais para isso
         adjacencias.putIfAbsent(e, new ArrayList<>());
         estacoesPorNome.put(nome.toLowerCase(), e);
     }
 
     private void adicionarConexao(String nome1, String nome2, double tempo) {
+
         Estacao e1 = estacoesPorNome.get(nome1.toLowerCase());
         Estacao e2 = estacoesPorNome.get(nome2.toLowerCase());
-        adjacencias.get(e1).add(new Conexao(e2, tempo));
-        adjacencias.get(e2).add(new Conexao(e1, tempo));
+
+        adjacencias.putIfAbsent(e1, new ArrayList<>());
+        adjacencias.putIfAbsent(e2, new ArrayList<>());
+        adjacencias.get(e1).add(new Conexao(e1, tempo));
+        adjacencias.get(e2).add(new Conexao(e2, tempo)); // opcional, se for bidirecional
     }
 
     public Estacao buscarEstacao(String nome) {
@@ -58,10 +68,13 @@ class Metro {
 
     // Dijkstra para menor tempo
     public Map<Estacao, Double> dijkstra(Estacao origem) {
+
         Map<Estacao, Double> tempoMinimo = new HashMap<>();
+
         for (Estacao e : adjacencias.keySet()) {
             tempoMinimo.put(e, Double.POSITIVE_INFINITY);
         }
+
         tempoMinimo.put(origem, 0.0);
 
         PriorityQueue<Estacao> fila = new PriorityQueue<>(Comparator.comparingDouble(tempoMinimo::get));
