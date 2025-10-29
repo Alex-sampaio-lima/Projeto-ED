@@ -22,17 +22,17 @@ public class Main {
 
         List<Estacao> caminho = metro.caminhoMaisRapido(origem, destino);
         Map<Estacao, Double> tempos = metro.dijkstra(origem);
-        Metro met = new Metro();
 
-        System.out.println("TeSTE" + met.dijkstra(origem));
-
-        System.out.println("Caminho mais rápido:");
+        System.out.println("CAMINHO = " + caminho);
+        System.out.println("TeSTE" + metro.dijkstra(origem));
 
         for (Estacao estacao : caminho) {
             System.out.print(estacao.getNome());
-            if (!estacao.equals(destino))
+            if (!estacao.equals(destino)) {
                 System.out.print(" -> ");
+            }
         }
         System.out.println("\nTempo estimado: " + tempos.get(destino) + " minutos");
+        read.close();
     };
 };

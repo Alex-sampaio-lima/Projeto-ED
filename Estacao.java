@@ -39,7 +39,7 @@ public class Estacao {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id.hashCode();
     };
 
     @Override

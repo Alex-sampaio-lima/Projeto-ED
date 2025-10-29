@@ -16,17 +16,16 @@ class Metro {
     public Metro() {
         // Inicializa todas as estações da Linha 1-Azul
         adicionarEstacao("JABAQUARA", "Jabaquara");
-        adicionarEstacao("CONCEICAO", "Conceição");
-        adicionarEstacao("SAOJUDAS", "São Judas");
-        adicionarEstacao("SAUDE", "Saúde");
-        adicionarEstacao("PRACA_ARVORE", "Praça da Árvore");
+        adicionarEstacao("CONCEICAO", "Conceicao");
+        adicionarEstacao("SAOJUDAS", "Sao Judas");
+        adicionarEstacao("SAUDE", "Saude");
+        adicionarEstacao("PRACA_ARVORE", "Praca da Arvore");
         adicionarEstacao("SANTA_CRUZ", "Santa Cruz");
         adicionarEstacao("VILA_MARIANA", "Vila Mariana");
         adicionarEstacao("ANA_ROSA", "Ana Rosa");
-        adicionarEstacao("PARAISO", "Paraíso");
-        adicionarEstacao("SE", "Sé");
+        adicionarEstacao("PARAISO", "Paraiso");
+        adicionarEstacao("SE", "Se");
         adicionarEstacao("TIRADENTES", "Tiradentes");
-        adicionarEstacao("PORTUGAL", "Portuguesa-Tietê"); // exemplo fictício
 
         // Adiciona conexões (tempos aproximados em minutos)
         adicionarConexao("JABAQUARA", "CONCEICAO", 2.0);
@@ -39,7 +38,6 @@ class Metro {
         adicionarConexao("ANA_ROSA", "PARAISO", 1.2);
         adicionarConexao("PARAISO", "SE", 2.5);
         adicionarConexao("SE", "TIRADENTES", 3.0);
-        adicionarConexao("TIRADENTES", "PORTUGAL", 2.5);
     }
 
     private void adicionarEstacao(String id, String nome) {
@@ -52,14 +50,13 @@ class Metro {
     }
 
     private void adicionarConexao(String nome1, String nome2, double tempo) {
-
         Estacao e1 = estacoesPorNome.get(nome1.toLowerCase());
         Estacao e2 = estacoesPorNome.get(nome2.toLowerCase());
 
         adjacencias.putIfAbsent(e1, new ArrayList<>());
         adjacencias.putIfAbsent(e2, new ArrayList<>());
-        adjacencias.get(e1).add(new Conexao(e1, tempo));
-        adjacencias.get(e2).add(new Conexao(e2, tempo)); // opcional, se for bidirecional
+        adjacencias.get(e1).add(new Conexao(e2, tempo));
+        adjacencias.get(e2).add(new Conexao(e1, tempo)); // opcional, se for bidirecional
     }
 
     public Estacao buscarEstacao(String nome) {
@@ -72,10 +69,10 @@ class Metro {
         Map<Estacao, Double> tempoMinimo = new HashMap<>();
 
         for (Estacao e : adjacencias.keySet()) {
-            tempoMinimo.put(e, 0.60);
+            tempoMinimo.put(e, 0.9);
         }
 
-        tempoMinimo.put(origem, 0.50);
+        tempoMinimo.put(origem, 0.00);
 
         PriorityQueue<Estacao> fila = new PriorityQueue<>(Comparator.comparingDouble(tempoMinimo::get));
         fila.add(origem);
@@ -98,6 +95,7 @@ class Metro {
     public List<Estacao> caminhoMaisRapido(Estacao origem, Estacao destino) {
         Map<Estacao, Double> tempoMinimo = new HashMap<>();
         Map<Estacao, Estacao> anterior = new HashMap<>();
+
         for (Estacao e : adjacencias.keySet()) {
             tempoMinimo.put(e, 0.60);
         }
