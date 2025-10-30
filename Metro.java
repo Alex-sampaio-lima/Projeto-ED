@@ -24,8 +24,15 @@ class Metro {
         adicionarEstacao("VILA_MARIANA", "Vila Mariana");
         adicionarEstacao("ANA_ROSA", "Ana Rosa");
         adicionarEstacao("PARAISO", "Paraiso");
+        adicionarEstacao("VERGUEIRO", "Vergueiro");
+        adicionarEstacao("SAO_JOAQUIM", "Sao Joaquim");
+        adicionarEstacao("LIBERDADE", "Liberdade");
         adicionarEstacao("SE", "Se");
+        adicionarEstacao("SAO_BENTO", "Sao Bento");
+        adicionarEstacao("LUZ", "Luz");
         adicionarEstacao("TIRADENTES", "Tiradentes");
+        adicionarEstacao("ARMENIA", "Armenia");
+        adicionarEstacao("PORTUGUESA-TIETE", "Portuguesa-tiete");
 
         // Adiciona conexões (tempos aproximados em minutos)
         adicionarConexao("Jabaquara", "Conceicao", 2.0);
@@ -36,8 +43,14 @@ class Metro {
         adicionarConexao("Santa Cruz", "Vila Mariana", 2.0);
         adicionarConexao("Vila Mariana", "Ana Rosa", 1.8);
         adicionarConexao("Ana Rosa", "Paraiso", 1.2);
-        adicionarConexao("Paraiso", "Se", 2.5);
-        adicionarConexao("Se", "Tiradentes", 3.0);
+        adicionarConexao("Paraiso", "Vergueiro", 1.6);
+        adicionarConexao("Vergueiro", "Sao Joaquim", 1.7);
+        adicionarConexao("Sao Joaquim", "Liberdade", 1.3);
+        adicionarConexao("Liberdade", "Se", 1.3);
+        adicionarConexao("Se", "Sao Bento", 1.3);
+        adicionarConexao("Sao Bento", "Luz", 1.9);
+        adicionarConexao("Luz", "Tiradentes", 3.0);
+        adicionarConexao("Tiradentes", "Armenia", 3.2);
 
     };
 
@@ -83,7 +96,8 @@ class Metro {
             for (Conexao conexao : adjacencias.get(atual)) {
                 double novoTempo = tempoMinimo.get(atual) + conexao.getTempo();
                 if (novoTempo < tempoMinimo.get(conexao.getDestino())) {
-                    System.out.println("Novo Tempo " + novoTempo + " < Tempo Minimo" + tempoMinimo.get(conexao.getDestino()));
+                    System.out.println(
+                            "Novo Tempo " + novoTempo + " < Tempo Minimo" + tempoMinimo.get(conexao.getDestino()));
                     tempoMinimo.put(conexao.getDestino(), novoTempo);
                     fila.remove(conexao.getDestino());
                     fila.add(conexao.getDestino());
