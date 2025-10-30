@@ -28,17 +28,18 @@ class Metro {
         adicionarEstacao("TIRADENTES", "Tiradentes");
 
         // Adiciona conexões (tempos aproximados em minutos)
-        adicionarConexao("JABAQUARA", "CONCEICAO", 2.0);
-        adicionarConexao("CONCEICAO", "SAOJUDAS", 2.5);
-        adicionarConexao("SAOJUDAS", "SAUDE", 1.5);
-        adicionarConexao("SAUDE", "PRACA_ARVORE", 2.0);
-        adicionarConexao("PRACA_ARVORE", "SANTA_CRUZ", 2.5);
-        adicionarConexao("SANTA_CRUZ", "VILA_MARIANA", 2.0);
-        adicionarConexao("VILA_MARIANA", "ANA_ROSA", 1.8);
-        adicionarConexao("ANA_ROSA", "PARAISO", 1.2);
-        adicionarConexao("PARAISO", "SE", 2.5);
-        adicionarConexao("SE", "TIRADENTES", 3.0);
-    }
+        adicionarConexao("Jabaquara", "Conceicao", 2.0);
+        adicionarConexao("Conceicao", "Sao Judas", 2.5);
+        adicionarConexao("Sao Judas", "Saude", 1.5);
+        adicionarConexao("Saude", "Praca da Arvore", 2.0);
+        adicionarConexao("Praca da Arvore", "Santa Cruz", 2.5);
+        adicionarConexao("Santa Cruz", "Vila Mariana", 2.0);
+        adicionarConexao("Vila Mariana", "Ana Rosa", 1.8);
+        adicionarConexao("Ana Rosa", "Paraiso", 1.2);
+        adicionarConexao("Paraiso", "Se", 2.5);
+        adicionarConexao("Se", "Tiradentes", 3.0);
+
+    };
 
     private void adicionarEstacao(String id, String nome) {
         Estacao e = new Estacao(id, nome);
@@ -69,7 +70,7 @@ class Metro {
         Map<Estacao, Double> tempoMinimo = new HashMap<>();
 
         for (Estacao e : adjacencias.keySet()) {
-            tempoMinimo.put(e, 0.9);
+            tempoMinimo.put(e, Double.POSITIVE_INFINITY);
         }
 
         tempoMinimo.put(origem, 0.00);
@@ -82,6 +83,7 @@ class Metro {
             for (Conexao conexao : adjacencias.get(atual)) {
                 double novoTempo = tempoMinimo.get(atual) + conexao.getTempo();
                 if (novoTempo < tempoMinimo.get(conexao.getDestino())) {
+                    System.out.println("Novo Tempo " + novoTempo + " < Tempo Minimo" + tempoMinimo.get(conexao.getDestino()));
                     tempoMinimo.put(conexao.getDestino(), novoTempo);
                     fila.remove(conexao.getDestino());
                     fila.add(conexao.getDestino());
@@ -97,8 +99,9 @@ class Metro {
         Map<Estacao, Estacao> anterior = new HashMap<>();
 
         for (Estacao e : adjacencias.keySet()) {
-            tempoMinimo.put(e, 0.60);
+            tempoMinimo.put(e, Double.POSITIVE_INFINITY);
         }
+
         tempoMinimo.put(origem, 0.0);
 
         PriorityQueue<Estacao> fila = new PriorityQueue<>(Comparator.comparingDouble(tempoMinimo::get));
@@ -127,8 +130,10 @@ class Metro {
             caminho.add(0, passo);
             passo = anterior.get(passo);
         }
-        if (!caminho.get(0).equals(origem))
+
+        if (!caminho.get(0).equals(origem)) {
             return Collections.emptyList();
+        }
         return caminho;
     };
 };

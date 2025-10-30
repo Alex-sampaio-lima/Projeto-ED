@@ -24,7 +24,7 @@ public class Main {
         Map<Estacao, Double> tempos = metro.dijkstra(origem);
 
         System.out.println("CAMINHO = " + caminho);
-        System.out.println("TeSTE" + metro.dijkstra(origem));
+        // System.out.println("TeSTE" + metro.dijkstra(origem));
 
         for (Estacao estacao : caminho) {
             System.out.print(estacao.getNome());
