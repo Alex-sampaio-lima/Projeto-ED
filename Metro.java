@@ -32,8 +32,14 @@ class Metro {
         adicionarEstacao("LUZ", "Luz");
         adicionarEstacao("TIRADENTES", "Tiradentes");
         adicionarEstacao("ARMENIA", "Armenia");
-        adicionarEstacao("PORTUGUESA-TIETE", "Portuguesa-tiete");
+        adicionarEstacao("PORTUGUESA_TIETE", "Portuguesa-tiete");
         adicionarEstacao("CARANDIRU", "Carandiru");
+        adicionarEstacao("SANTANA", "Santana");
+        adicionarEstacao("JARDIM_SAO_PAULO_AYRTON_SENNA", "Jardim Sao Paulo-Ayrton Senna");
+        adicionarEstacao("PARADA_INGLESA", "Parada Inglesa");
+        adicionarEstacao("TUCURUVI", "Tucuruvi");
+        adicionarEstacao("", "");
+        adicionarEstacao("", "");
 
         // Adiciona conexões (tempos aproximados em minutos)
         adicionarConexao("Jabaquara", "Conceicao", 2.0);
@@ -54,6 +60,78 @@ class Metro {
         adicionarConexao("Tiradentes", "Armenia", 3.2);
         adicionarConexao("Armenia", "Portuguesa-tiete", 2.4);
         adicionarConexao("Portuguesa-tiete", "Carandiru", 2.2);
+        adicionarConexao("Carandiru", "Santana", 2.2);
+        adicionarConexao("Santana", "Jardim Sao Paulo-Ayrton Senna", 2.2);
+        adicionarConexao("Jardim Sao Paulo-Ayrton Senna", "Parada Inglesa", 1.1);
+        adicionarConexao("Parada Inglesa", "Tucuruvi", 1.5);
+
+        // Inicializa todas as estações da Linha 2-Verde
+        adicionarEstacao("VILA_PRUDENTE", "Vila Prudente");
+        adicionarEstacao("TAMANDUATEI", "Tamanduatei");
+        adicionarEstacao("SACOMA", "Sacomã");
+        adicionarEstacao("ALTO_DO_IPIRANGA", "Alto do Ipiranga");
+        adicionarEstacao("SANTOS_IMIGRANTES", "Santos-Imigrantes");
+        adicionarEstacao("CHACARA_KLABIN", "Chacara Klabin");
+        adicionarEstacao("BRIGADEIRO", "Brigadeiro");
+        adicionarEstacao("TRIANON_MASP", "Trianon-Masp");
+        adicionarEstacao("CONSOLACAO", "Consolacao");
+        adicionarEstacao("CLINICAS", "Clinicas");
+        adicionarEstacao("SUMARE", "Sumare");
+        adicionarEstacao("VILA_MADALENA", "Vila Madalena");
+
+        // Adiciona conexões (tempos aproximados em minutos)
+        adicionarConexao("Vila Prudente", "Tamanduatei", 2.0);
+        adicionarConexao("Tamanduatei", "Sacomã", 2.0);
+        adicionarConexao("Sacomã", "Alto do Ipiranga", 2.0);
+        adicionarConexao("Alto do Ipiranga", "Santos-Imigrantes", 2.5);
+        adicionarConexao("Santos-Imigrantes", "Chacara Klabin", 2.0);
+        adicionarConexao("Chacara Klabin", "Ana Rosa", 1.5); // Conexão com a Linha 1
+        adicionarConexao("Ana Rosa", "Paraiso", 1.2); // Conexão com Linha 1
+        adicionarConexao("Paraiso", "Brigadeiro", 2.0);
+        adicionarConexao("Brigadeiro", "Trianon-Masp", 1.5);
+        adicionarConexao("Trianon-Masp", "Consolacao", 1.8);
+        adicionarConexao("Consolacao", "Clinicas", 2.3);
+        adicionarConexao("Clinicas", "Sumare", 2.1);
+        adicionarConexao("Sumare", "Vila Madalena", 2.0);
+
+        // Inicializa todas as estacoes da Linha 3-Vermelha
+        adicionarEstacao("CORINTHIANS_ITAQUERA", "Corinthians-Itaquera");
+        adicionarEstacao("ARTUR_ALVIM", "Artur Alvim");
+        adicionarEstacao("PATRIARCA", "Patriarca");
+        adicionarEstacao("GUILHERMINA_ESPERANCA", "Guilhermina-Esperanca");
+        adicionarEstacao("VILA_MATILDE", "Vila Matilde");
+        adicionarEstacao("PENHA", "Penha");
+        adicionarEstacao("CARRAO", "Carrao");
+        adicionarEstacao("TATUAPE", "Tatuape");
+        adicionarEstacao("BELEM", "Belem");
+        adicionarEstacao("BRESSER_MOOCA", "Bresser-Mooca");
+        adicionarEstacao("BRAS", "Bras");
+        adicionarEstacao("PEDRO_II", "Pedro II");
+        adicionarEstacao("SE", "Se");
+        adicionarEstacao("ANHANGABAU", "Anhangabau");
+        adicionarEstacao("REPUBLICA", "Republica");
+        adicionarEstacao("SANTA_CECILIA", "Santa Cecilia");
+        adicionarEstacao("MARECHAL_DEODORO", "Marechal Deodoro");
+        adicionarEstacao("PALMEIRAS_BARRA_FUNDA", "Palmeiras-Barra Funda");
+
+        // Adiciona conexoes (tempos aproximados em minutos)
+        adicionarConexao("Corinthians-Itaquera", "Artur Alvim", 2.0);
+        adicionarConexao("Artur Alvim", "Patriarca", 2.0);
+        adicionarConexao("Patriarca", "Guilhermina-Esperanca", 1.5);
+        adicionarConexao("Guilhermina-Esperanca", "Vila Matilde", 1.7);
+        adicionarConexao("Vila Matilde", "Penha", 2.0);
+        adicionarConexao("Penha", "Carrao", 2.1);
+        adicionarConexao("Carrao", "Tatuape", 2.0);
+        adicionarConexao("Tatuape", "Belem", 2.0);
+        adicionarConexao("Belem", "Bresser-Mooca", 2.1);
+        adicionarConexao("Bresser-Mooca", "Bras", 2.3);
+        adicionarConexao("Bras", "Pedro II", 1.7);
+        adicionarConexao("Pedro II", "Se", 1.6); // conexao com Linha 1-Azul
+        adicionarConexao("Se", "Anhangabau", 1.5);
+        adicionarConexao("Anhangabau", "Republica", 1.3); // conexao com Linha 4-Amarela
+        adicionarConexao("Republica", "Santa Cecilia", 1.8);
+        adicionarConexao("Santa Cecilia", "Marechal Deodoro", 1.9);
+        adicionarConexao("Marechal Deodoro", "Palmeiras-Barra Funda", 2.4);
 
     };
 
@@ -99,8 +177,8 @@ class Metro {
             for (Conexao conexao : adjacencias.get(atual)) {
                 double novoTempo = tempoMinimo.get(atual) + conexao.getTempo();
                 if (novoTempo < tempoMinimo.get(conexao.getDestino())) {
-                    System.out.println(
-                            "Novo Tempo " + novoTempo + " < Tempo Minimo" + tempoMinimo.get(conexao.getDestino()));
+                    // System.out.println("Novo Tempo " + novoTempo + " < Tempo Minimo" +
+                    // tempoMinimo.get(conexao.getDestino()));
                     tempoMinimo.put(conexao.getDestino(), novoTempo);
                     fila.remove(conexao.getDestino());
                     fila.add(conexao.getDestino());
