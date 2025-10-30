@@ -33,6 +33,7 @@ class Metro {
         adicionarEstacao("TIRADENTES", "Tiradentes");
         adicionarEstacao("ARMENIA", "Armenia");
         adicionarEstacao("PORTUGUESA-TIETE", "Portuguesa-tiete");
+        adicionarEstacao("CARANDIRU", "Carandiru");
 
         // Adiciona conexões (tempos aproximados em minutos)
         adicionarConexao("Jabaquara", "Conceicao", 2.0);
@@ -51,6 +52,8 @@ class Metro {
         adicionarConexao("Sao Bento", "Luz", 1.9);
         adicionarConexao("Luz", "Tiradentes", 3.0);
         adicionarConexao("Tiradentes", "Armenia", 3.2);
+        adicionarConexao("Armenia", "Portuguesa-tiete", 2.4);
+        adicionarConexao("Portuguesa-tiete", "Carandiru", 2.2);
 
     };
 
