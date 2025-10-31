@@ -27,7 +27,7 @@ public class Main {
                 Estacao destino = metro.buscarEstacao(destinoNome);
 
                 while (origem == null || destino == null) {
-                    System.out.println("Estacao invalida! Digite novamente.");
+                    System.out.println("Estação invalida! Digite novamente.");
 
                     if (origem == null) {
                         System.out.println("Digite a estacao de origem:");
