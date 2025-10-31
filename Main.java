@@ -5,33 +5,58 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Metro metro = new Metro();
+        int menu = 0;
         Scanner read = new Scanner(System.in);
 
-        System.out.println("Digite a estação de origem:");
-        String origemNome = read.nextLine();
+        do {
+            System.out.println("Escolha uma das opcões: ");
+            System.out.println("0 - Sair");
+            System.out.println("1 - Buscar nova rota");
+            menu = read.nextInt();
+            read.nextLine();
 
-        System.out.println("Digite a estação de destino:");
-        String destinoNome = read.nextLine();
+            if (menu == 1) {
 
-        Estacao origem = metro.buscarEstacao(origemNome);
-        Estacao destino = metro.buscarEstacao(destinoNome);
+                System.out.println("Digite a estação de origem:");
+                String origemNome = read.nextLine();
 
-        if (origem == null || destino == null) {
-            System.out.println("Estação inválida!");
-        }
+                System.out.println("Digite a estação de destino:");
+                String destinoNome = read.nextLine();
 
-        List<Estacao> caminho = metro.caminhoMaisRapido(origem, destino);
-        Map<Estacao, Double> tempos = metro.dijkstra(origem);
+                Estacao origem = metro.buscarEstacao(origemNome);
+                Estacao destino = metro.buscarEstacao(destinoNome);
 
-        // System.out.println("CAMINHO = " + caminho);
+                while (origem == null || destino == null) {
+                    System.out.println("Estacao invalida! Digite novamente.");
 
-        for (Estacao estacao : caminho) {
-            System.out.print(estacao.getNome());
-            if (!estacao.equals(destino)) {
-                System.out.print(" -> ");
+                    if (origem == null) {
+                        System.out.println("Digite a estacao de origem:");
+                        origemNome = read.nextLine();
+                        origem = metro.buscarEstacao(origemNome);
+                    }
+
+                    if (destino == null) {
+                        System.out.println("Digite a estacao de destino:");
+                        destinoNome = read.nextLine();
+                        destino = metro.buscarEstacao(destinoNome);
+                    }
+                }
+
+                List<Estacao> caminho = metro.caminhoMaisRapido(origem, destino);
+                Map<Estacao, Double> tempos = metro.dijkstra(origem);
+
+                for (Estacao estacao : caminho) {
+                    System.out.print(estacao.getNome());
+                    if (!estacao.equals(destino)) {
+                        System.out.print(" -> ");
+                    }
+                }
+                System.out.println("\nTempo estimado: " + tempos.get(destino) + " minutos");
+
+            } else {
+                break;
             }
-        }
-        System.out.println("\nTempo estimado: " + tempos.get(destino) + " minutos");
-        read.close();
+
+        } while (menu != 0);
     };
 };
