@@ -10,8 +10,8 @@ public class Main {
 
         do {
             System.out.println("Escolha uma das opcões: ");
-            System.out.println("0 - Sair");
-            System.out.println("1 - Buscar nova rota");
+            System.out.println("0 - Sair.");
+            System.out.println("1 - Buscar rota mais rápida para o seu destino.");
             menu = read.nextInt();
             read.nextLine();
 
@@ -51,7 +51,11 @@ public class Main {
                         System.out.print(" -> ");
                     }
                 }
-                System.out.println("\nTempo estimado: " + tempos.get(destino) + " minutos");
+
+                double tempoTotal = tempos.get(destino);
+                String tempoFormatado = String.format("%.2f", tempoTotal);
+
+                System.out.println("\nTempo estimado: " + tempoFormatado + " minutos");
 
             } else {
                 break;

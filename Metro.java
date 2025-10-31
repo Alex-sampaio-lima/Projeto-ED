@@ -133,6 +133,62 @@ class Metro {
         adicionarConexao("Santa Cecilia", "Marechal Deodoro", 1.9);
         adicionarConexao("Marechal Deodoro", "Palmeiras-Barra Funda", 2.4);
 
+        // Inicializa todas as estacoes da Linha 4-Amarela
+        adicionarEstacao("VILA_SONIA", "Vila Sonia");
+        adicionarEstacao("SAO_PAULO_MORUMBI", "Sao Paulo-Morumbi");
+        adicionarEstacao("BUTANTA", "Butanta");
+        adicionarEstacao("PINHEIROS", "Pinheiros");
+        adicionarEstacao("FRADIQUE_COUTINHO", "Fradique Coutinho");
+        adicionarEstacao("FARIA_LIMA", "Faria Lima");
+        adicionarEstacao("PAULISTA", "Paulista");
+        adicionarEstacao("HIGIENOPOLIS_MACKENZIE", "Higienopolis-Mackenzie");
+
+        // Adiciona conexoes (tempos aproximados em minutos)
+        adicionarConexao("Vila Sonia", "Sao Paulo-Morumbi", 2.0);
+        adicionarConexao("Sao Paulo-Morumbi", "Butanta", 2.2);
+        adicionarConexao("Butanta", "Pinheiros", 2.3); // conexao com Linha 9-Esmeralda
+        adicionarConexao("Pinheiros", "Fradique Coutinho", 2.0);
+        adicionarConexao("Fradique Coutinho", "Faria Lima", 1.6);
+        adicionarConexao("Faria Lima", "Paulista", 2.3);
+        adicionarConexao("Paulista", "Higienopolis-Mackenzie", 1.7);
+        adicionarConexao("Higienopolis-Mackenzie", "Republica", 1.5); // conexao com Linha 3-Vermelha
+        adicionarConexao("Republica", "Luz", 2.8); // conexao com Linha 1-Azul
+
+        // Inicializa todas as estacoes da Linha 9-Esmeralda
+        adicionarEstacao("GRAJAU", "Grajau");
+        adicionarEstacao("INTERLAGOS", "Interlagos");
+        adicionarEstacao("JURUBATUBA", "Jurubatuba");
+        adicionarEstacao("MORUMBI", "Morumbi");
+        adicionarEstacao("VILA_OLIMPIA", "Vila Olimpia");
+        adicionarEstacao("CIDADE_JARDIM", "Cidade Jardim");
+        adicionarEstacao("VILA_LOPES", "Vila Lopes"); // opcional, pode remover se quiser manter real
+        adicionarEstacao("BERRINI", "Berrini");
+        adicionarEstacao("SANTO_AMARO", "Santo Amaro");
+        adicionarEstacao("SOCORRO", "Socorro");
+        adicionarEstacao("PRIMAVERA_INTERLAGOS", "Primavera-Interlagos");
+        adicionarEstacao("AUTODROMO", "Autodromo");
+        adicionarEstacao("VILA_CIDADE_UNIVERSITARIA", "Cidade Universitaria"); // conexão com Linha 4
+        adicionarEstacao("CEASA", "Ceasa");
+        adicionarEstacao("PRESIDENTE_ALTINO", "Presidente Altino");
+        adicionarEstacao("OSASCO", "Osasco");
+
+        // Adiciona conexoes (tempos aproximados em minutos)
+        adicionarConexao("Grajau", "Primavera-Interlagos", 3.0);
+        adicionarConexao("Primavera-Interlagos", "Interlagos", 2.5);
+        adicionarConexao("Interlagos", "Autodromo", 2.2);
+        adicionarConexao("Autodromo", "Jurubatuba", 2.3);
+        adicionarConexao("Jurubatuba", "Santo Amaro", 2.4);
+        adicionarConexao("Santo Amaro", "Socorro", 1.8);
+        adicionarConexao("Socorro", "Morumbi", 2.7);
+        adicionarConexao("Morumbi", "Berrini", 2.5);
+        adicionarConexao("Berrini", "Vila Olimpia", 2.1);
+        adicionarConexao("Vila Olimpia", "Cidade Jardim", 2.0);
+        adicionarConexao("Cidade Jardim", "Pinheiros", 1.9); // conexao com Linha 4-Amarela
+        adicionarConexao("Pinheiros", "Cidade Universitaria", 2.0);
+        adicionarConexao("Cidade Universitaria", "Ceasa", 2.3);
+        adicionarConexao("Ceasa", "Presidente Altino", 2.4);
+        adicionarConexao("Presidente Altino", "Osasco", 3.0);
+
     };
 
     private void adicionarEstacao(String id, String nome) {
