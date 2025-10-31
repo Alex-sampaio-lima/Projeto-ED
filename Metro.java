@@ -177,8 +177,6 @@ class Metro {
             for (Conexao conexao : adjacencias.get(atual)) {
                 double novoTempo = tempoMinimo.get(atual) + conexao.getTempo();
                 if (novoTempo < tempoMinimo.get(conexao.getDestino())) {
-                    // System.out.println("Novo Tempo " + novoTempo + " < Tempo Minimo" +
-                    // tempoMinimo.get(conexao.getDestino()));
                     tempoMinimo.put(conexao.getDestino(), novoTempo);
                     fila.remove(conexao.getDestino());
                     fila.add(conexao.getDestino());
